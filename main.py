@@ -8,8 +8,8 @@ from antenna_power_interference import AntennaSelection, TransmitPowerControl, I
 print('Site Survery:')
 campus_area = (1000, 1000)  # Assuming a 1000x1000 meter campus area
 site_survey = SiteSurvey(campus_area)
-site_survey.add_building("Main Building", (200, 300))
-site_survey.add_building("Library", (150, 200))
+site_survey.add_building("Main Building", (200, 300), "Strong", "Channel 1", "WPA2-Enterprise", "Fast Handoff")
+site_survey.add_building("Library", (150, 200), "Moderate", "Channel 6", "WPA2-Enterprise", "Seamless Handoff")
 site_survey.visualize_site_survey()
 
 print('')

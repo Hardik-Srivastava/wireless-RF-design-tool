@@ -1,36 +1,42 @@
-import matplotlib.pyplot as plt
+import tkinter as tk
+from tkinter import ttk
+import matplotlib as plt
 class SiteSurvey:
     def __init__(self, campus_area):
         self.campus_area = campus_area
-        self.building_layout = {}  # Dictionary to store building layout information
+        self.building_layout = {}
+        self.building_info = {}
 
-    def add_building(self, building_name, building_size):
+    def add_building(self, building_name, building_size, signal_strength, channel, authentication_protocol, handoff_strategy):
         self.building_layout[building_name] = building_size
+        self.building_info[building_name] = {"Signal Strength": signal_strength, "Channel": channel, "Authentication Protocol": authentication_protocol, "Handoff Strategy": handoff_strategy}
 
-    def analyze_interference(self):
-        # Placeholder for interference analysis
-        print("Analyzing interference sources...")
-
-    def predict_signal_propagation(self):
-        # Placeholder for signal propagation modeling
-        print("Predicting signal propagation...")
-        
     def visualize_site_survey(self):
-        plt.figure(figsize=(8, 6))
-        plt.title("Campus Site Survey")
-        plt.xlabel("X")
-        plt.ylabel("Y")
-        plt.xlim(0, self.campus_area[0])
-        plt.ylim(0, self.campus_area[1])
+        # Create main window
+        root = tk.Tk()
+        root.title("Campus Site Survey")
 
-        # Plot buildings
+        # Create treeview for displaying buildings and their information
+        tree = ttk.Treeview(root)
+        tree["columns"] = ("Size", "Signal Strength", "Channel", "Authentication Protocol", "Handoff Strategy")
+        tree.heading("#0", text="Building")
+        tree.heading("Size", text="Size")
+        tree.heading("Signal Strength", text="Signal Strength")
+        tree.heading("Channel", text="Channel")
+        tree.heading("Authentication Protocol", text="Authentication Protocol")
+        tree.heading("Handoff Strategy", text="Handoff Strategy")
+
         for building, size in self.building_layout.items():
-            x, y = size
-            plt.plot([0, 0, x, x, 0], [0, y, y, 0, 0], label=building)
+            size_str = f"{size[0]} x {size[1]}"
+            signal_strength = self.building_info[building]["Signal Strength"]
+            channel = self.building_info[building]["Channel"]
+            auth_protocol = self.building_info[building]["Authentication Protocol"]
+            handoff_strategy = self.building_info[building]["Handoff Strategy"]
+            tree.insert("", "end", text=building, values=(size_str, signal_strength, channel, auth_protocol, handoff_strategy))
 
-        plt.legend()
-        plt.grid(True)
-        plt.show()
+        tree.pack()
+
+        root.mainloop()
 
 class CoveragePlanning:
     def __init__(self, site_survey):
@@ -42,9 +48,6 @@ class CoveragePlanning:
             coverage_areas.append((building, size))
         return coverage_areas
 
-    def optimize_signal_strength(self):
-        # Placeholder for optimizing signal strength
-        print("Optimizing signal strength...")
     def visualize_coverage_areas(self):
         plt.figure(figsize=(8, 6))
         plt.title("Coverage Planning")
@@ -53,7 +56,6 @@ class CoveragePlanning:
         plt.xlim(0, self.site_survey.campus_area[0])
         plt.ylim(0, self.site_survey.campus_area[1])
 
-        # Plot coverage areas
         for building, size in self.site_survey.building_layout.items():
             x, y = size
             plt.plot([0, 0, x, x, 0], [0, y, y, 0, 0], label=building, linestyle='--')
@@ -67,16 +69,15 @@ class CapacityPlanning:
         self.num_users = num_users
 
     def estimate_bandwidth_requirements(self):
-        # Placeholder for estimating bandwidth requirements based on the number of users
         bandwidth_per_user = 1  # Mbps
         total_bandwidth = self.num_users * bandwidth_per_user
         return total_bandwidth
 
-# Example usage
 campus_area = (1000, 1000)  # Assuming a 1000x1000 meter campus area
 site_survey = SiteSurvey(campus_area)
-site_survey.add_building("Main Building", (200, 300))
-site_survey.add_building("Library", (150, 200))
+site_survey.add_building("Main Building", (200, 300), "Strong", "Channel 1", "WPA2-Enterprise", "Fast Handoff")
+site_survey.add_building("Library", (150, 200), "Moderate", "Channel 6", "WPA2-Enterprise", "Seamless Handoff")
+site_survey.visualize_site_survey()
 
 coverage_planning = CoveragePlanning(site_survey)
 coverage_areas = coverage_planning.determine_coverage_areas()
