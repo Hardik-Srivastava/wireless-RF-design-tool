@@ -37,7 +37,7 @@ This Python project provides a simple tool for designing wireless networks, incl
 
 ## Usage
 
-1. Modify the Python scripts (`site_survey.py`, `coverage_planning.py`, etc.) to customize the network design parameters and configurations according to your requirements.
+1. Modify the Python scripts to customize the network design parameters and configurations according to your requirements.
 
 2. Run the Python scripts to perform specific tasks, such as site survey analysis, coverage planning, or visualization.
 
