@@ -51,6 +51,3 @@ This Python project provides a simple tool for designing wireless networks, incl
 
 Contributions to this project are welcome! Feel free to submit bug reports, feature requests, or pull requests via the GitHub repository.
 
-## License
-
-This project is licensed under the MIT License. See the [LICENSE](LICENSE) file for details.
