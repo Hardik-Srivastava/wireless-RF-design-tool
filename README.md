@@ -20,7 +20,7 @@ This Python project provides a simple tool for designing wireless networks, incl
 1. Clone the repository:
 
     ```
-    git clone https://github.com/Hardik-Srivastava/wireless-network-design-tool.git
+    git clone https://github.com/Hardik-Srivastava/wireless-RF-design-tool.git
     ```
 
 2. Navigate to the project directory:
