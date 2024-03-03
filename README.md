@@ -1,4 +1,4 @@
-# Wireless Network Design Tool
+# Wireless RF Design Tool
 
 This Python project provides a simple tool for designing wireless networks, including site survey analysis, coverage planning, and visualization. It offers functionalities to perform various tasks related to RF (Radio Frequency) design, such as antenna selection, transmit power control, interference mitigation, security measures, quality of service (QoS), and network management.
 

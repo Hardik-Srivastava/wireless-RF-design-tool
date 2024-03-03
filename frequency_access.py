@@ -24,12 +24,3 @@ class AccessPointPlacement:
             self.access_point_locations.append((x, y))
         print("Access points placed successfully.")
 
-available_frequency_bands = ['2.4 GHz', '5 GHz']
-analyzer = FrequencySpectrumAnalyzer(available_frequency_bands)
-analyzer.analyze_interference()
-optimal_band = analyzer.select_optimal_frequency_band()
-
-campus_area = (1000, 1000)  # Assuming a 1000x1000 meter campus area
-access_point_placement = AccessPointPlacement(campus_area)
-num_access_points = 10
-access_point_placement.place_access_points(num_access_points)

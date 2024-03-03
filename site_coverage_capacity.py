@@ -73,16 +73,3 @@ class CapacityPlanning:
         total_bandwidth = self.num_users * bandwidth_per_user
         return total_bandwidth
 
-campus_area = (1000, 1000)  # Assuming a 1000x1000 meter campus area
-site_survey = SiteSurvey(campus_area)
-site_survey.add_building("Main Building", (200, 300), "Strong", "Channel 1", "WPA2-Enterprise", "Fast Handoff")
-site_survey.add_building("Library", (150, 200), "Moderate", "Channel 6", "WPA2-Enterprise", "Seamless Handoff")
-site_survey.visualize_site_survey()
-
-coverage_planning = CoveragePlanning(site_survey)
-coverage_areas = coverage_planning.determine_coverage_areas()
-print("Coverage Areas:", coverage_areas)
-
-capacity_planning = CapacityPlanning(num_users=500)
-bandwidth_required = capacity_planning.estimate_bandwidth_requirements()
-print("Estimated Bandwidth Required:", bandwidth_required, "Mbps")

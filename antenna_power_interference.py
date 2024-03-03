@@ -28,15 +28,3 @@ class InterferenceMitigation:
         print("Selected interference mitigation strategy:", selected_strategy)
         return selected_strategy
 
-coverage_requirements = 'Indoor'
-antenna_selector = AntennaSelection(coverage_requirements)
-selected_antenna = antenna_selector.select_antenna()
-
-max_transmit_power = 20  # dBm
-power_controller = TransmitPowerControl(max_transmit_power)
-current_power_level = 15  # dBm
-new_power_level = power_controller.adjust_power_levels(current_power_level)
-
-interference_sources = ['Neighboring networks', 'Microwave ovens', 'Bluetooth devices']
-interference_mitigator = InterferenceMitigation(interference_sources)
-selected_strategy = interference_mitigator.mitigate_interference()
