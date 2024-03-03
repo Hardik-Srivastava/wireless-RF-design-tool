@@ -42,7 +42,7 @@ This Python project provides a simple tool for designing wireless networks, incl
 2. Run the Python scripts to perform specific tasks, such as site survey analysis, coverage planning, or visualization.
 
     ```
-    python site_survey.py
+    python main.py
     ```
 
 3. View the generated outputs, such as site survey plots or coverage area visualizations, to analyze the results and make informed decisions about your wireless network design.
